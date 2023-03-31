@@ -1,1 +1,6 @@
 cache
+*out
+*log
+*tmp
+*wandb
+

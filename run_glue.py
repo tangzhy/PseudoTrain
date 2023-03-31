@@ -45,6 +45,9 @@ from transformers.trainer_utils import get_last_checkpoint
 from transformers.utils import check_min_version
 from transformers.utils.versions import require_version
 
+import torch
+print(f"My NVIDIA-SMI IS_GPU_AVAILABLE: {torch.cuda.is_available()}; DEVICE_COUNT: {torch.cuda.device_count()}; DEVICE_NAME: {torch.cuda.get_device_name(0)}")
+
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 check_min_version("4.9.0")
