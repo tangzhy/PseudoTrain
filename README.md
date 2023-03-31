@@ -3,6 +3,8 @@
 此代码用于调通 单机多卡 和 双机多卡 两种常见训练模式。
 例子来源: https://github.com/huggingface/transformers/tree/v4.9.2/examples/pytorch/text-classification
 
+**请提前下载项目压缩包至所有调试机器，并解压缩，项目压缩包可从google云盘下载: https://drive.google.com/file/d/1PLPCOZwzSZ5VJIfU6IJwFsIXu6BG5tuI/view?usp=sharing**
+
 ### 环境依赖
 
 We need `python >= 3.7`, for package installation, please refer to requirements.txt.
