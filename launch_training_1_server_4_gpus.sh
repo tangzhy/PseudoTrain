@@ -1,8 +1,9 @@
+export CUDA_VISIBLE_DEVICES=2,5,6,7
 export TASK_NAME=mrpc
 export WANDB_DISABLED=true
 export NUM_SERVERS=1
 export SERVER_INDEX=0
-export NUM_GPUS_PER_SERVER=8
+export NUM_GPUS_PER_SERVER=4
 
 python -m torch.distributed.launch \
   --nnodes $NUM_SERVERS \
@@ -14,9 +15,9 @@ python -m torch.distributed.launch \
   --do_train \
   --do_eval \
   --max_seq_length 128 \
-  --per_device_train_batch_size 32 \
+  --per_device_train_batch_size 100 \
   --learning_rate 2e-5 \
-  --num_train_epochs 10 \
+  --num_train_epochs 10000000000000000000000 \
   --save_strategy no \
   --cache_dir ./cache \
   --output_dir ./tmp/$TASK_NAME/ \
