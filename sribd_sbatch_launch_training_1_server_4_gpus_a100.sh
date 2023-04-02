@@ -1,16 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=tangzhengyang
-#SBATCH -p p-V100
-#SBATCH --time=14-00:00:00
+#SBATCH -p p-A100
 #SBATCH -N 1
-#SBATCH --mem=64GB
-#SBATCH --ntasks-per-node=8
-#SBATCH --cpus-per-task=4
-#SBATCH --gres=gpu:8
+#SBATCH --mem=32GB
+#SBATCH --ntasks-per-node=4
+#SBATCH --cpus-per-task=2
+#SBATCH --gres=gpu:4
 time=$(date "+%m%d-%H%M")
 
 python -m torch.distributed.launch \
-  --nproc_per_node 8 \
+  --nproc_per_node 4 \
   /home/tangzhengyang/PseudoTrain/run_glue.py \
   --model_name_or_path bert-base-cased \
   --task_name mrpc \
