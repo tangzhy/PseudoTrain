@@ -9,6 +9,8 @@
 #SBATCH --reservation=A100
 time=$(date "+%m%d-%H%M")
 
+nvidia-smi
+
 python -m torch.distributed.launch \
   --nproc_per_node 8 \
   /ibex/user/hej0b/zhengyang/PseudoTrain/run_glue.py \
@@ -23,4 +25,4 @@ python -m torch.distributed.launch \
   --save_strategy no \
   --cache_dir /ibex/user/hej0b/zhengyang/PseudoTrain/cache \
   --output_dir /ibex/user/hej0b/zhengyang/PseudoTrain/tmp/mrpc/ \
-  --overwrite_output_dir > /ibex/user/hej0b/zhengyang/PseudoTrain/zhengyang_$time.log
+  --overwrite_output_dir

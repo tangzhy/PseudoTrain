@@ -8,6 +8,8 @@
 #SBATCH --gres=gpu:4
 time=$(date "+%m%d-%H%M")
 
+nvidia-smi
+
 python -m torch.distributed.launch \
   --nproc_per_node 4 \
   /home/tangzhengyang/PseudoTrain/run_glue.py \
@@ -22,4 +24,4 @@ python -m torch.distributed.launch \
   --save_strategy no \
   --cache_dir /home/tangzhengyang/PseudoTrain/cache \
   --output_dir /home/tangzhengyang/PseudoTrain/tmp/mrpc/ \
-  --overwrite_output_dir > /home/tangzhengyang/PseudoTrain/zhengyang_$time.log
+  --overwrite_output_dir
