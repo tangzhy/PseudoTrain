@@ -1,11 +1,10 @@
-export CUDA_VISIBLE_DEVICES=2,5,6,7
 export TASK_NAME=mrpc
 export WANDB_DISABLED=true
 export NUM_SERVERS=1
 export SERVER_INDEX=0
-export NUM_GPUS_PER_SERVER=4
+export NUM_GPUS_PER_SERVER=1
 
-python -m torch.distributed.launch \
+torchrun \
   --nnodes $NUM_SERVERS \
   --node_rank $SERVER_INDEX \
   --nproc_per_node $NUM_GPUS_PER_SERVER \
@@ -21,4 +20,5 @@ python -m torch.distributed.launch \
   --save_strategy no \
   --cache_dir ./cache \
   --output_dir ./tmp/$TASK_NAME/ \
+  --report_to none \
   --overwrite_output_dir
